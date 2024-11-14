@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>반복문</title>
     <style>
-     
+        /* .container{
+            display: flex;
+            flex-flow: column nowrap;
+            box-sizing: border-box;
+        }
+        .row{
+            display: flex;
+            flex-flow: row nowrap;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        p {
+            margin: 0;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+            border:1px solid black;
+            text-align: center;
+        }
     </style>
     <script>
-     
+        // let tag = `<div class="container">`;
+        //     let count = 1; // 숫자 초기값 설정
+        // for (let j = 1; j <= 5; j++) {
+        //     tag += `<div class="row">`;
+        //     for (let i = 1; i <= 5; i++) {
+        //         tag += `<p>${count}</p>`;
+        //         count++; // 숫자 증가
+        //     }
+        //     tag += `</div>`;
+        // }
+        // tag += `</div?>`;
+        // document.write(tag);
+
+        let n = 1;
+        let tag = `<table>`;
+        for(i = 0; i < 5; i++) {
+            tag += `<tr>`;
+                for(j = 0; j < 5; j++) {
+                    tag += `<td>${n++}</td>`;
+                }
+            tag += `</tr>`;
+        }
+        tag += `</table>`;
+        document.write(tag);
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
