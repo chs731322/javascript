@@ -4,8 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>if문</title>
+    <style>
+        .good{
+            color: skyblue;
+        }
+        .normal{
+            color: yellowgreen;
+        }
+        .bad{
+            color: orange;
+        }
+        .sobad{
+            color: red;
+        }
+    </style>
     <script>
-      
+      //미세먼지 데이터가
+      /* 0~30 좋음 -> skyblue
+      31~80 보통 -> yellowgreen
+      81~150 나쁨 -> orange
+      151~ 매우 나쁨 -> red */
+    
+      let mise = Math.ceil(Math.random() * 200);
+      document.write(`미세먼지 양 : ${mise}`);
+      if(mise >= 0 && mise < 31){
+        document.write(`<p class="good">미세먼지 농도 : 좋음</p>`);
+      }
+      else if(mise >= 31 && mise < 81){
+        document.write(`<p class="normal">미세먼지 농도 : 보통</p>`);
+      }
+      else if(mise >= 81 && mise < 151){
+        document.write(`<p class="bad">미세먼지 농도 : 나쁨</p>`);
+      }
+      else{
+        document.write(`<p class="sobad">미세먼지 농도 : 매우 나쁨</p>`);
+      }
     </script>
 </head>
 <body>
