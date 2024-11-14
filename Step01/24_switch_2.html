@@ -12,20 +12,25 @@
       아니면 싸이월드 url */
 
       let num = Number(prompt('1, 2, 3중 숫자를 입력하세요'));
+      let url;
 
       switch(num){
         case 1:
-          document.write('<a href="https://www.google.com/">google</a>');
+          url = 'https://www.google.com/';
           break;
         case 2:
-          document.write('<a href="https://www.naver.com/">naver</a>');
+          url = 'https://www.naver.com/';
           break;
         case 3:
-          document.write('<a href="https://www.daum.net/">daum</a>');
+          url = 'https://www.daum.net/';
           break;
         default:
-          document.write('<a href="https://www.cyworld.com/">cyworld</a>');
+          url = 'https://www.cyworld.com/';
       }
+
+      alert(`이동할 URL: ${url}`);
+      location.href = url;  // 주소창에 입력된 url로 이동
+      
     </script>
   </head>
   <body>
