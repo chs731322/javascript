@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>switch</title>
     <script>
-   
+        // 점수를 5개 입력 받아서, 입력 받은 점수들의 평균을 구함
+
+        let score = Math.ceil(Math.random() * 100);
+
+        document.write(`점수 : ${score}<br>`);
+
+
+        // 평균에 따른 성적 등급을 출력
+        switch (Math.floor(score/10)) {
+            case 10:
+            case 9:
+            document.write('등급: A');
+                break;
+            case 8:
+            document.write('등급: B');
+                break;
+            case 7:
+            document.write('등급: C');
+                break;
+            case 6:
+            document.write('등급: D');
+                break;
+            default:
+            document.write('등급: F');
+        }
+
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
