@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>screen</title>
   <script>
-   
+    document.write(screen.width, '<br>' , screen.height, '<hr>');
+    // 사용가능한 가로, 세로 길이 (작업표시줄만큼 제외된 값)
+    document.write(screen.availWidth, '<br>' , screen.availHeight, '<hr>');
+    document.write(screen.colorDepth, '<hr>');
+    document.write(screen.orientation.angle, '<hr>');
+    document.write(screen.pixelDepth, '<hr>');
+    
+
   </script>
 </head>
 <body>
