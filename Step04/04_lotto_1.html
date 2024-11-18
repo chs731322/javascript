@@ -25,7 +25,23 @@
         }
     </style>
     <script>
-       
+        // 로또 번호 5세트를 화면에 표를 이용해서 출력
+        document.write('<table>');
+        let lotto = [];
+        while (lotto.length < 5) {
+            let arr = [];
+            document.write('<tr>');
+            for(i = 0; i < 6; i++) {
+                let n = Math.floor(Math.random() * 45) + 1;
+                if (arr.indexOf(n) === -1) {
+                    arr.push(n);
+                }
+                document.write(`<td>${arr[i]}</td>`);
+            }
+            document.write('</tr>');
+            lotto.push(arr);
+        }
+        document.write('</table>');
     </script>
 </head>
 
