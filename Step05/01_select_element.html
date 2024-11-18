@@ -29,6 +29,35 @@
     <script>
         let txt = document.getElementById('txt');
         console.log(txt.value);
+
+        txt = document.querySelector('#txt');
+        console.log(txt.value);
+
+        txt.value = '바꾼 값';
+        txt.type = 'password';
+
+        let p = document.querySelectorAll('p');
+        console.log(p);
+        for(tag of p){
+            console.log(tag.innerHTML);
+            tag.innerHTML = `<u>${Math.ceil(Math.random() * 26)}</u>`;
+            // 카멜 표기법으로 표시
+            tag.style.backgroundColor = 'green';
+            // 글자색 흰색으로 변경
+            tag.style.color = 'white';
+        }
+
+        // input 태그 전부 선택
+        // 입력된 값을 삭제, 배경색을 전부 빨간색 처리
+        // 읽기 전용으로 처리, 데이터 입력을 막음
+        let input = document.querySelectorAll('input');
+        for(tag of input) {
+            tag.style.backgroundColor = 'red';
+            tag.value = '';
+            tag.readOnly = true;
+        }
+
+
     </script>
 </body>
 </html>
