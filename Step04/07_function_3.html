@@ -5,7 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>함수</title>
     <script>
-       
+        // 가변 길이 매개변수 : 인자값을 여러개 받아서 배열로 만들어 처리
+       function sum(...arr) {
+        console.log(arr);
+       }
+       sum(1,2,3,4);
+       sum(1,2,3,4,5);
+       sum(5,6,7,8,9);
+       sum(10, 11, 12);
+       sum();   // undefined가 아닌 빈 배열
+
+       // 가변길이 매개변수는 일반적으로 맨 마지막에 넣어야함
+       function sum2(a, b, ...arr) {
+        console.log(a, b, arr);
+       }
+
+       sum2(1,2);
+       sum2(1,2,3,4,5);
+       sum2(5,6,7,8,9);
+       sum2(10, 11, 12);
+       sum2();
+
+       // 자바스크립트에서는 함수도 객체로 관리, 변수에 저장이 가능
+       let r = function(a, b) {
+        return a + b;
+       }
+       console.log(r(10, 20));
+       r = sum;
+       r(1,2,3,4,5);
     </script>
 </head>
 <body>
