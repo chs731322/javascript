@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>함수</title>
     <script>
-       
+        // undefined : 값이 없음
+        // null : 데이터가 빈 값
+       function sum(a, b) {
+        if(b == undefined) return;
+        console.log(a, b);
+        return a + b;
+       }
+
+       console.log(sum(10, 20));
+       //return 이 없으면 결과값은 undefined
+       console.log(sum(10));
     </script>
 </head>
 <body>
