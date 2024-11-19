@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
-    <script>
-      
-    </script>
+    
 </head>
 <body>
     <a href="https://www.google.com" id="google">구글로 이동</a><br>
     <a href="https://www.naver.com" id="naver">네이버로 이동</a>
+
+    <script>
+        // 구글 링크와 네이버 링크 선택
+        let google = document.querySelector('#google');
+        let naver = document.querySelector('#naver');
+
+        // 구글 링크를 클릭하면 '구글 페이지로 이동합니다.' 라는 경고창 출력
+        google.onclick = (event) => {
+            alert('구글 페이지로 이동합니다.');
+            // 기존 태그에 적용된 이벤트 기능을 실행하지 않음
+            event.preventDefault();
+        };
+        // 네이버도 동일
+        naver.onclick = () => {
+            alert('네이버 페이지로 이동합니다.');
+            // 기존 태그에 적용된 이벤트 기능을 실행하지 않음
+            return false;
+        };
+    </script>
 </body>
 </html>
