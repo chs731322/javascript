@@ -6,22 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>롤오버 이미지</title>
     <script>
-        //이미지에 마우스가 올라갔을때 img/linkedin_2.png
-        //이미지에 마우스가 벗어났을때 img/linkedin_1.png
-        window.onload = function () {
-            // 이미지 태그 선택
+        window.onload = () => {
             let img = document.querySelector('img');
-
-            // 마우스가 이미지 위에 올라갔을 때
-            img.onmouseover = function () {
-                img.src = 'img/linkedin_2.png'; // 새로운 이미지로 변경
-            };
-
-            // 마우스가 이미지에서 벗어났을 때
-            img.onmouseout = function () {
-                img.src = 'img/linkedin_1.png'; // 원래 이미지로 복원
-            };
-        };
+            //이미지에 마우스가 올라갔을때 img/linkedin_2.png
+            img.onmouseover = function(){
+                this.src = 'img/linkedin_2.png';
+            }
+            //이미지에 마우스가 벗어났을때 img/linkedin_1.png
+            img.onmouseout = function(){
+                this.src = 'img/linkedin_1.png';
+            }
+        }
     </script>
 </head>
 
