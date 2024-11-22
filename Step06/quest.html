@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            position: relative;
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            flex-flow: row nowrap;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-arrow.left {
+            left: 10px;
+            background-image: url('img/left_arrow.png');
+        }
+
+        .carousel-arrow.right {
+            right: 10px;
+            background-image: url('img/right_arrow.png');
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .carousel-dots span {
+            width: 15px;
+            height: 15px;
+            background-color: #eee;
+            border-radius: 50%;
+            /* transition: background-color 0.3s ease; */
+        }
+
+        .carousel-dots .active {
+            background-color: #333;
+            border: 5px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <!-- 이미지 컨테이너 -->
+        <div class="carousel-images">
+            <img src="img/main_1.webp" alt="Image 1">
+            <img src="img/main_2.webp" alt="Image 2">
+            <img src="img/main_3.webp" alt="Image 3">
+            <img src="img/main_4.webp" alt="Image 4">
+        </div>
+
+        <!-- 좌우 화살표 -->
+        <a href="#" class="carousel-arrow left"></a>
+        <a href="#" class="carousel-arrow right"></a>
+
+        <!-- 동그라미 네비게이션 -->
+        <div class="carousel-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+        const dots = document.querySelectorAll('.carousel-dots span');
+        const leftArrow = document.querySelector('.carousel-arrow.left');
+        const rightArrow = document.querySelector('.carousel-arrow.right');
+        const totalImages = document.querySelectorAll('.carousel-images img').length;
+
+        let currentIndex = 0;
+        let interval;
+
+        // 슬라이드 이동 함수
+        function moveToIndex(index) {
+            carouselImages.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === index);
+            });
+        }
+
+        // 왼쪽 화살표 클릭
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            moveToIndex(currentIndex);
+            stopAutoSlide();
+        });
+
+        // 오른쪽 화살표 클릭
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            moveToIndex(currentIndex);
+            stopAutoSlide();
+        });
+
+        // 자동 슬라이드
+        function startAutoSlide() {
+            interval = setInterval(() => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                moveToIndex(currentIndex);
+            }, 3000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+
+        // 초기 실행
+        moveToIndex(currentIndex);
+        startAutoSlide();
+    </script>
+</body>
+
+</html>
