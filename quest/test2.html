@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'NanumSquareRound';
+            box-sizing: border-box;
+        }
+
+        h1,
+        p {
+            margin: 0 auto;
+            text-align: center;
+            color: #E94A4A;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .main_container {
+            margin: 20px auto;
+            width: 570px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 20px 0px;
+        }
+
+        #title,
+        #content,
+        #email {
+            width: 570px;
+            padding-left: 20px;
+            font-size: 20px;
+            border: 1px solid #A00000;
+        }
+
+        #title,
+        #email {
+            height: 70px;
+        }
+
+        #content {
+            height: 300px;
+            padding-top: 20px;
+        }
+
+        .agree {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        #chk {
+            width: 30px;
+            height: 30px;
+        }
+
+        label {
+            padding-left: 10px;
+            font-size: 20px;
+            color: #E94A4A;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #AF7878;
+        }
+
+        button {
+            width: 570px;
+            height: 70px;
+            background-color: #A00000;
+            color: white;
+            font-weight: bold;
+            font-size: 32px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div class="main_container">
+        <h1>고객의 소리</h1>
+        <p>고객님의 목소리 의견 하나하나 듣겠습니다.<br>개인정보 이용에 동의를 하셔야 이용하실 수 있습니다.</p>
+        <div class="container">
+            <input type="text" placeholder="제목을 입력하세요" id="title">
+            <textarea name="" id="content" placeholder="내용을 입력하세요"></textarea>
+            <input type="text" placeholder="연락처나 이메일 입력해 주세요" id="email">
+            <div class="agree">
+                <input type="checkbox" name="" id="chk"><label for="chk">개인정보 수집에 동의합니다.</label>
+            </div>
+
+        </div>
+        <button class="btn_submit">제출하기</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'NanumSquareRound';
+            box-sizing: border-box;
+        }
+
+        h1,
+        p {
+            margin: 0 auto;
+            text-align: center;
+            color: #131F85;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .main_container {
+            margin: 20px auto;
+            width: 570px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 30px 0px;
+        }
+
+        #title,
+        #content,
+        #email {
+            width: 570px;
+            padding-left: 20px;
+            font-size: 20px;
+            border: 1px solid #131F85;
+        }
+
+        .tel {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .tel>input {
+            padding: 10px 20px;
+            width: 80px;
+            height: 70px;
+            font-size: 20px;
+            border: 1px solid #131F85;
+            text-align: center;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 2.5em;
+        }
+
+        #num_mid, #num_last {
+            width: 150px;
+        }
+
+        #title,
+        #email {
+            height: 70px;
+        }
+
+        #content {
+            height: 300px;
+            padding-top: 20px;
+        }
+
+        .agree {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        #chk {
+            width: 30px;
+            height: 30px;
+        }
+
+        label {
+            padding-left: 10px;
+            font-size: 20px;
+            color: #131F85;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #e9e9e9;
+        }
+
+        .bottom {
+            width: 570px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 15px;
+        }
+
+        button {
+            width: 100%;
+            height: 70px;
+            background-color: #131F85;
+            color: white;
+            font-weight: bold;
+            font-size: 32px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function checkContent() {
+            let title = document.querySelector("#title").value;
+            let numFirst = document.querySelector("#num_first").value;
+            let numMid = document.querySelector("#num_mid").value;
+            let numLast = document.querySelector("#num_last").value;
+            let content = document.querySelector("#content").value;
+            let email = document.querySelector("#email").value;
+            let agreed = document.querySelector("#chk").checked;
+
+            console.log(title);
+            console.log(numFirst);
+            console.log(content);
+            console.log(email);
+            console.log(agreed);
+
+            if (!title) {
+                alert("제목을 입력해주세요.");
+                return;
+            }
+            if (!numFirst ||!numMid || !numLast) {
+                alert("연락처를 입력해주세요.");
+                return;
+            }
+            if (!content) {
+                alert("문의 내용을 입력해주세요.");
+                return;
+            }
+            if (!email) {
+                alert("이메일을 입력해주세요.");
+                return;
+            }
+            
+            if (!agreed) {
+                alert("개인정보 제공을 동의해야 내용 접수가 가능합니다.");
+                return;
+            }
+
+            alert("해당 내용을 접수하였습니다.");
+        }
+
+        function resetContent() {
+            document.querySelector("#title").value = "";
+            document.querySelector("#num_first").value = "";
+            document.querySelector("#num_mid").value = "";
+            document.querySelector("#num_last").value = "";
+            document.querySelector("#content").value = "";
+            document.querySelector("#email").value = "";
+            document.querySelector("#chk").checked = false;
+        }
+        window.onload = () => {
+            document.querySelector('.btn_ask').onclick = checkContent;
+            document.querySelector('.btn_reset').onclick = resetContent;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="main_container">
+        <h1>제품문의</h1>
+        <p>원하시는 제품이나, 관련 내용을 원하시는 부분을 작성해 주세요</p>
+        <div class="container">
+            <input type="text" placeholder="제목" id="title">
+            <div class="tel">
+                <input type="text" placeholder="010" id="num_first">
+                <span>-</span>
+                <input type="text" placeholder="0000" id="num_mid">
+                <span>-</span>
+                <input type="text" placeholder="0000" id="num_last">
+            </div>
+            <textarea name="" id="content" placeholder="문의 내용 입력"></textarea>
+            <input type="text" placeholder="이메일 입력" id="email">
+            <div class="agree">
+                <input type="checkbox" name="" id="chk"><label for="chk">개인정보 제공에 대해 동의합니다.</label>
+            </div>
+
+        </div>
+        <div class="bottom">
+            <button class="btn_ask">문의하기</button>
+            <button class="btn_reset">초기화</button>
+        </div>
+    </div>
+</body>
+
+</html>

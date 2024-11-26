@@ -147,6 +147,7 @@
             let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^*~])[A-Za-z\d!@#$%^*~]{8,32}$/
 
             if(!reg.test(pass.value)){
+                // test() : 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환
                 document.querySelector('.pass_result').innerHTML = '암호는 대소문자, 숫자, 특수문자 1글자씩 포함되어야 합니다, 8~32글자 사이로 입력하세요.';
                 document.querySelector('.pass_result').classList.add('false');
                 document.querySelector('.pass_result').classList.remove('true');
@@ -174,7 +175,7 @@
 
             nick.value = nick.value.substr(0,20);
             nick.nextElementSibling.innerHTML = nick.value.length + '/20';
-
+            // nextElementSibling : 다음 Element를 반환
             return reg.test(nick.value);
         }
 
